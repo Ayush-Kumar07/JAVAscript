@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="submitted()" onreset="reset1()"> 
+        <input type="text" id="t1" placeholder="=type something" onblur="change1('red')"><br>
+        <input type="text" id="t2" placeholder="=type something" onfocus="change2('blue')"><br>
+        <input type="text" id="t3" placeholder="=type something"><br>
+        <input type="submit" value="submit">
+        <input type="reset" value="reset" >
+    </form>
+    <script>
+        //
+        function change1(ele){
+            document.getElementById("t1").style.backgroundColor=ele
+        }
+        //
+        function change2(ele){
+            document.getElementById("t2").style.backgroundColor=ele
+        }
+        //
+        function submitted(){
+            alert("FORM SUBMITTED!")
+        }
+        //
+        function reset1(){
+            alert("FORM HAS BEEN RESET")
+        }
+    </script>
+</body>
+</html>
