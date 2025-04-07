@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main-image {width: 520px; padding: 4px; margin: 5px;}
+        #img1 {width: 500px; height: 400px;}
+        .tc {width: 100px; display: flex; justify-content: center; height: 100px; margin: 5px; padding: 2px; }
+        .btn {width: 100px; height: 50px; margin: 5px; padding: 2px; }
+        .container{ display:flex; justify-content: center;}
+
+        
+    </style>
+</head>
+<body>
+    <center>
+    <div class="container">
+        <div class="main-image">
+            <img src="vk.webp" id="img1">
+            <input type="submit" value="next" id="prev" class="btn" value="prev">
+            <input type="submit" value="prev" id="next" class="btn" value="next">
+            <div class="tc">
+                <img class="t" src="car-967387_640.webp">
+                <img class="t" src="download.jpg">
+                <img class="t" src="vk.webp">
+                <img class="t" src="rcb.avif">
+            </div>
+        </div>
+    </div>
+</center>
+<script>
+    let mi = document.getElementById("img1");
+    let thumbnails = document.querySelectorAll(".t");
+    let currentIndex = 0;
+    for(let i = 0; i < thumbnails.length; i++)
+    {
+        thumbnails[i].addEventListener("click", function()
+        {
+            currentIndex = i;
+            mi.src = thumbnails[i].src;
+        });
+    }
+   document.getElementById("prev").addEventListener("click", function()
+    {
+        currentIndex=(currentIndex - 1 + thumbnails.length) % thumbnails.length;
+        mi.src = thumbnails[currentIndex].src;
+    });
+    document.getElementById("next").addEventListener("click", function()
+    {
+        currentIndex=(currentIndex + 1 ) % thumbnails.length;
+        mi.src = thumbnails[currentIndex].src;
+    });
+</script>
+</body>
+</html>
